@@ -4,18 +4,55 @@
   <meta charset="utf-8">
   <title> {{{info.title}}}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
+
+  <link rel="shortcut icon" href="/assets/img/favicon.ico">
+  <link rel="apple-touch-icon image_src" href="/assets/img/favicon.ico">
+
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/styles.css?h=1e1f77aighjg">
   <link rel="stylesheet" href="assets/css/font-awesome-4.7.0/css/font-awesome.min.css">
   <!-- Open Graph -->
   <meta property="og:title" content="{{{info.title}}}" />
   <meta property="og:type" content="programação, docker, agile, javascript, mobile" />
-  <meta property="og:site_name" content="DevConf" />
-  <meta property="og:url" content="http://devconf.opensanca.com.br" />
-  <meta property="og:image" content="http://opensanca.com.br/devconf/assets/img/Love-Coding.jpg" />
+  <meta property="og:site_name" content="{{{ info.eventName }}}" />
+  <meta property="og:url" content="https://devconf.com.br" />
+  <meta property="og:image" content="https://devconf.com.br/assets/img/coding2020.jpg?h=1e1f77aighjg" />
   <!-- IE polyfills, keep the order please -->
   <!-- <script src="../assets/js/modenizr-custom.js"></script> -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "DevConf 2020",
+      "startDate": "2020-05-16T08:00",
+      "endDate": "2020-05-16T18:00",
+      "location": {
+        "@type": "Place",
+        "name": "Teatro Universitário Florestan Fernandes - UFSCar",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "BRA",
+          "streetAddress": "Av. Biblioteca Comunitária, S/N - Monjolinho",
+          "addressRegion": "SP",
+          "addressLocality": "São Carlos",
+          "postalCode": "13571-000",
+        }
+      },
+      "image": [
+        "https://devconf.com.br/assets/img/logos/logo_devconf.png"
+       ],
+      "description": "O DevConf é um evento de tecnologia organizado pelo Opensanca, a maior comunidade ativa de tecnologia do interior de São Paulo. A proposta desta edição do evento é colocar em discussão temas atuais de tecnologia e desenvolvimento de software. Iremos promover apresentações com alto nível de conhecimento e relevância e, estimular a troca de experiência e network entre a comunidade de tecnologia.",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.sympla.com.br/devconf-2020__791212",
+        "price": "60",
+        "priceCurrency": "BRL",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2020-01-01T12:00"
+      },
+    }
+    </script>
 </head>
 <body>
 
@@ -23,12 +60,34 @@
     {{> section/hero }}
     {{> section/about }}
 
+    {{#if albumLink }}
+      {{> section/eventPhotos }}
+    {{/if}}
+
     {{#if speakers }}
         {{> section/speaker }}
+    {{else}}
+      <section class="speaker" id="speaker">
+          <div class="wrapper">
+              <h2 class="section-title">Palestrantes</h2>
+              <p>Em breve</p>
+          </div>
+      </section>
     {{/if}}
 
     {{#if schedule }}
         {{> section/schedule }}
+    {{else}}
+      <section class="schedule" id="schedule">
+          <div class="wrapper">
+              <h2 class="section-title">Programação</h2>
+              <p>Em breve a programação</p>
+          </div>
+      </section>
+    {{/if}}
+
+    {{#if workshop_schedule }}
+        {{> section/workshop_schedule }}
     {{/if}}
 
     {{> section/sponsor }}
@@ -41,7 +100,7 @@
         <div id="google-container"></div>
         <div id="cd-zoom-in"></div>
         <div id="cd-zoom-out"></div>
-        <address>Anfiteatro Bento Prado Junior -  UFSCar | Rod. Washington Luis, km 235 - São Carlos/SP</address>
+        <address> {{ info.place }}| {{ info.address }}</address>
     </section>
 
     {{> section/contact }}

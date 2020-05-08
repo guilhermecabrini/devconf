@@ -1016,6 +1016,10 @@ i {
     padding: 180px 0 0
 }
 
+.hero__logo {
+  width: 41%
+}
+
 @media only screen and (max-width: 840px) {
     .hero .wrapper {
         padding:120px 0 0
@@ -1322,7 +1326,9 @@ section {
 .speaker__grow { transition: all .2s ease-in-out;}
 .speaker__grow:hover { transform: scale(1.1);}
 
-
+.speaker__grow > img {
+    width: 100%
+}
 
 
 /*animação do efeito hover do mouse sobre os thumbs*/
@@ -1457,12 +1463,16 @@ float: left;
 
 .schedule .see-details,
 .schedule .details {
-  display: none;
+  /* display: none; */
 }
 
 .schedule .see-details:checked + .details {
   display: block;
   padding-top: 10px;
+}
+
+.workshop_schedule {
+  margin-top: -5rem;
 }
 
 /*** uncss> filename: http://localhost:8080/assets/css/about.css ***/
@@ -1524,5 +1534,5 @@ float: left;
 }
 
 .text-capitalize{
-  text-transform:capitalize;  
+  text-transform:capitalize;
 }

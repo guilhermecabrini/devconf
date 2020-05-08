@@ -1,30 +1,26 @@
   <header role="banner" class="header">
     <div class="wrapper">
       <a href="/" class="logo">
-        Your Ticket
-        <img class="logo__image hidden-xs" src="assets/img/opensanca.svg" alt="DevConf">
+        <img class="pull-left logo-devconf-lg" src="assets/img/logos/logo_devconf_grey.png?h=1e1f77aighjg" alt="DevConf">
       </a>
 
-    <div class="hidden-md hidden-lg ">
-      <img class="logo__image pull-left mobile-devconf" src="assets/img/opensanca.svg" alt="DevConf">
-      <span class="hidden-sm hidden-md hidden-lg mobile-text"> / DevConf </span>
-    </div>
-
-        <div class="award">
+        {{!-- <div class="award">
         <div>
-          <p class="award__title">DevConf {{ info.year }}</p>
+          <p class="award__title"> /* {{ info.eventName }} {{ info.year }} */</p>
           <p>
             Somos caipiras e gostamos de tecnologia
           </p>
         </div>
-      </div>
+      </div> --}}
       <nav class="nav">
         <ul class="nav__list">
-          {{! > header/dropdown }}
-          {{> header/item label="DevConf" href="#about" }}
+          {{> header/item label=info.eventName href="#about" }}
           {{> header/item label="Palestrantes" href="#speaker"}}
           {{> header/item label="Programação" href="#schedule"}}
           {{> header/item label="Patrocinadores" href="#sponsor" }}
+          {{#if pastEditions}}
+            {{> header/pastEditions }}
+          {{/if}}
           {{> header/item label="Contato" href="#contact" clazz="nav__item--divider" }}
         </ul>
       </nav>
